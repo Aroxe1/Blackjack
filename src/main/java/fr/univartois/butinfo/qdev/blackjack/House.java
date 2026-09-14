@@ -1,5 +1,6 @@
 package fr.univartois.butinfo.qdev.blackjack;
 
+
 public class House extends CardOwner{
 
     public House(){
@@ -7,11 +8,13 @@ public class House extends CardOwner{
     }
 
     public boolean isHitting(){
-        return true;
+        return getHandValue() < 17;
     }
 
     public void flipFirstCard(){
-
+        if (!hand.isEmpty()){
+            hand.get(0).flip();
+        }
     }
 
 }

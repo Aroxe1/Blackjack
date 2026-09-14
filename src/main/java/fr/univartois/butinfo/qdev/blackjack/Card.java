@@ -16,7 +16,7 @@ public class Card {
     }
 
     public int getNumericalValue(){
-        return getNumericalValue();
+        return value.getNumericalValue();
     }
 
     public Suit getSuit(){
@@ -29,9 +29,8 @@ public class Card {
 
     @Override
     public String toString(){
-        return "";
+        return value.name() + suit.getSymbol();
     }
-
 
 
 }

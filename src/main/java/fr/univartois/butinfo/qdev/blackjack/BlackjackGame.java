@@ -19,6 +19,51 @@ public class BlackjackGame{
     }
 
     public void play(){
+        for(int i=0; i < 2; i++){
+            for(Player player : players){
+                player.receive(deck.withdraw());
+            }
+            house.receive(deck.withdraw());
+        }
+
+        house.flipFirstCard();
+
+        for(Player player : players){
+            System.out.println(player);
+            while(player.isHitting() && !player.isBusted()){
+                player.receive(deck.withdraw());
+                System.out.println(player);
+            }
+        }
+
+        System.out.println(house);
+        while(house.isHitting() && !house.isBusted()){
+            house.receive(deck.withdraw());
+            System.out.println(house);
+        }
+
+        for(Player player : players){
+            if(player.isBusted()){
+                player.bust();
+                player.lose();
+            }
+            else if (house.isBusted()){
+                player.win();
+            }
+            else if (player.getHandValue() > house.getHandValue()){
+                player.win();
+            }
+            else if (player.getHandValue() < house.getHandValue()){
+                player.lose();
+            }
+            else{
+                player.push();
+            }
+        }
+
+
+
+
 
     }
 

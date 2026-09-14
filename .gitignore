@@ -132,3 +132,19 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+# Fichiers de compilation Java.
+*.class
+*.jar
+
+# Fichiers de compilation Gradle.
+build
+.gradle
+
+# Fichiers d'Eclipse.
+bin
+.classpath
+.project
+.settings
+
+# Fichiers d'IntelliJ.
+.idea

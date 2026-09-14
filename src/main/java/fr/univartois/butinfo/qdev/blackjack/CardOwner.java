@@ -1,29 +1,38 @@
 package fr.univartois.butinfo.qdev.blackjack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class CardOwner {
-    private String name;
+    protected String name;
+    protected List<Card> hand;
 
     protected CardOwner(String name){
         this.name = name;
+        this.hand = new ArrayList<>();
     }
 
     public abstract boolean isHitting();
 
-    public void receive(Card card){
 
+    public void receive(Card card){
+        hand.add(card);
     }
 
     public int getHandValue(){
-
-        return 0;
+        int total = 0;
+        for(Card card : hand){
+            total += card.getNumericalValue();
+        }
+        return total;
     }
 
     public boolean isBusted(){
-        return false;
+        return getHandValue() > 21;
     }
 
     @Override
     public String toString(){
-        return "";
+        return name + ": " + hand;
     }
 }
