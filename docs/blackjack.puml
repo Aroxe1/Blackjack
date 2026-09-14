@@ -1,0 +1,102 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ContratBlackjack {
+    + demarrerPartie() : void
+    + distribuerCartesInitiales() : void
+    + jouerTour(joueur : Player) : void
+    + determinerGagnant() : Player
+    + reinitialiser() : void
+}
+
+class BlackjackGame implements ContratBlackjack {
+    - deck : Deck
+    - joueurs : List<Player>
+    - maison : House
+    + main(args : String[]) : void
+    + demarrerPartie() : void
+    + distribuerCartesInitiales() : void
+    + jouerTour(joueur : Player) : void
+    + determinerGagnant() : Player
+    + reinitialiser() : void
+    + distribuerCarte(joueur : Player) : void
+    + calculerScore(joueur : Player) : int
+    + estBlackjack(joueur : Player) : boolean
+    + aDepasse(joueur : Player) : boolean
+    + comparerScores() : Player
+    + ajouterJoueur(joueur : Player) : void
+}
+
+BlackjackGame "1" *-- "1" Deck
+BlackjackGame o-- "1..7" Player
+BlackjackGame "1" *-- "1" House
+
+class Deck {
+    - cartes : List<Card>
+    + Deck()
+    + melanger() : void
+    + piocher() : Card
+    + estVide() : boolean
+    + taille() : int
+}
+
+class Card {
+    - couleur : Suit
+    - valeur : Value
+    + Card(couleur : Suit, valeur : Value)
+    + getCouleur() : Suit
+    + getValeur() : Value
+    + toString() : String
+}
+
+Deck "1" *-- "0..52" Card
+Card "1" *-- "1" Suit
+Card "1" *-- "1" Value
+
+class Player {
+    # nom : String
+    # main : List<Card>
+    # score : int
+    + Player(nom : String)
+    + ajouterCarte(carte : Card) : void
+    + calculerScore() : int
+    + viderMain() : void
+    + getNom() : String
+    + getScore() : int
+}
+
+Player "1" o-- "0..*" Card
+
+class House extends Player {
+    - carteCachee : Card
+    + House()
+    + revelerCarteCachee() : void
+    + doitTirer() : boolean
+}
+
+enum Suit {
+    PIQUE
+    TREFLE
+    CARREAU
+    COEUR
+}
+
+enum Value {
+    AS
+    DEUX
+    TROIS
+    QUATRE
+    CINQ
+    SIX
+    SEPT
+    HUIT
+    NEUF
+    DIX
+    VALET
+    REINE
+    ROI
+    - valeur : int
+    + getValue() : int
+}
+
+@enduml
