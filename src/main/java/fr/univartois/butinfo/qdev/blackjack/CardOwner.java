@@ -1,6 +1,7 @@
 package fr.univartois.butinfo.qdev.blackjack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class CardOwner {
@@ -14,6 +15,14 @@ public abstract class CardOwner {
 
     public abstract boolean isHitting();
 
+
+    public String getName(){
+        return name;
+    }
+
+    public List<Card> getHand(){
+        return Collections.unmodifiableList(hand);
+    }
 
     public void receive(Card card){
         hand.add(card);

@@ -21,6 +21,19 @@ public enum Value {
         this.numericalValue = numericalValue;
     }
 
+    /**
+     * Libellé court de la valeur, tel qu'il est imprimé sur une carte (A, 2, ..., 10, J, Q, K).
+     */
+    public String getLabel(){
+        return switch (this) {
+            case ACE -> "A";
+            case JACK -> "J";
+            case QUEEN -> "Q";
+            case KING -> "K";
+            default -> String.valueOf(numericalValue);
+        };
+    }
+
     public int getNumericalValue(){
         return this.numericalValue;
     }

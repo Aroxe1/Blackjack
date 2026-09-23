@@ -23,6 +23,10 @@ public class Card {
         return suit;
     }
 
+    public boolean isFaceUp(){
+        return isFaceUp;
+    }
+
     public void flip(){
         this.isFaceUp = !this.isFaceUp;
     }
