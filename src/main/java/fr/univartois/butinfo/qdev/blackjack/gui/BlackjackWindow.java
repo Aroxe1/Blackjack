@@ -30,7 +30,7 @@ import javax.swing.Scrollable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
-import fr.univartois.butinfo.qdev.blackjack.BlackjackGame;
+import fr.univartois.butinfo.qdev.blackjack.game.BlackjackGame;
 import fr.univartois.butinfo.qdev.blackjack.House;
 import fr.univartois.butinfo.qdev.blackjack.Player;
 import fr.univartois.butinfo.qdev.blackjack.Result;

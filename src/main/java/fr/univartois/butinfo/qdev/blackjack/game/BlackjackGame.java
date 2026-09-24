@@ -1,4 +1,6 @@
-package fr.univartois.butinfo.qdev.blackjack;
+package fr.univartois.butinfo.qdev.blackjack.game;
+
+import fr.univartois.butinfo.qdev.blackjack.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
